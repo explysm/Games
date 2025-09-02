@@ -1,0 +1,91 @@
+[gd_scene load_steps=12 format=3 uid="uid://bytlgij07ok16"]
+
+[ext_resource type="PackedScene" uid="uid://bnykvma186s22" path="res://Scenes/Player.tscn" id="1_dfy4c"]
+[ext_resource type="Script" uid="uid://bpbo0re5asym6" path="res://Scenes/main.gd" id="1_jjvhh"]
+[ext_resource type="AudioStream" uid="uid://bs3fbnv74410f" path="res://lofi-295209.ogg" id="2_24qsv"]
+[ext_resource type="PackedScene" uid="uid://f7ihkm6keisa" path="res://Scenes/ground.tscn" id="2_jjvhh"]
+[ext_resource type="PackedScene" uid="uid://bjwkhbw1clktl" path="res://textures/dobby.glb" id="5_kry3j"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_nwt1m"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lbmjp"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6x1in"]
+
+[sub_resource type="Sky" id="Sky_3mac5"]
+sky_material = SubResource("ProceduralSkyMaterial_6x1in")
+
+[sub_resource type="Environment" id="Environment_b3qab"]
+background_mode = 2
+sky = SubResource("Sky_3mac5")
+ambient_light_source = 1
+reflected_light_source = 2
+glow_enabled = true
+glow_hdr_threshold = 4.0
+glow_hdr_scale = 4.0
+glow_hdr_luminance_cap = 73.3
+glow_map_strength = 1.0
+fog_enabled = true
+fog_mode = 1
+fog_density = 1.0
+fog_sky_affect = 0.459
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.01
+
+[sub_resource type="SystemFont" id="SystemFont_jjvhh"]
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_jjvhh")
+
+[node name="Node3D" parent="." instance=ExtResource("2_jjvhh")]
+
+[node name="Player" parent="." instance=ExtResource("1_dfy4c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.094382, 0.171663, 2.49467)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.905569, 0.234131, -0.353734, 0, 0.833886, 0.551937, 0.4242, -0.499817, 0.755141, -1.35439, 9.43098, 17.8435)
+light_color = Color(1, 0.733333, 0.4, 1)
+light_volumetric_fog_energy = 4.027
+shadow_enabled = true
+directional_shadow_split_1 = 0.086
+directional_shadow_split_2 = 0.565
+directional_shadow_split_3 = 0.689
+directional_shadow_blend_splits = true
+directional_shadow_fade_start = 0.705
+
+[node name="MusicPlayer" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.42241, 0)
+stream = ExtResource("2_24qsv")
+volume_db = -26.666
+autoplay = true
+max_distance = 200.0
+parameters/looping = true
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.955078, 0.425595, -0.247508)
+gi_mode = 2
+mesh = SubResource("BoxMesh_nwt1m")
+skeleton = NodePath("../StaticBody3D")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_lbmjp")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_b3qab")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(3.83129, 0, -5.02881, 0, 9, 0, 1.14944, 0, 16.7619, 0.27573, 2.05658, 23)
+billboard = 1
+text = "Just a block."
+font = SubResource("SystemFont_jjvhh")
+font_size = 38
+uppercase = true
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("5_kry3j")]
+transform = Transform3D(-0.0136031, 0, 0.199537, 0, 0.2, 0, -0.199537, 0, -0.0136031, -0.0952117, 0.00193411, 21.8421)
+
+[node name="Label3D2" type="Label3D" parent="Sketchfab_Scene"]
+transform = Transform3D(0.704506, 0, 4.95012, 0, 5, 0, -4.95012, 0, 0.704506, -2.21622, 3.63632, -3.26258)
+text = "hi! I'm dobby :)"
