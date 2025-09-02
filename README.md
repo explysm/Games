@@ -12,4 +12,6 @@ Godot x4.3
 ---
 # Note
 
-Feel free to add to any of my games :)
+Feel free to download this repo if you want to modify my games. 
+
+^^ You can also ask me to publish your modified version of the game. 
