@@ -13,6 +13,10 @@ var rotation_x = 0.0
 ##
 @onready var camera = $PlayerCamera
 @onready var footstep = $AudioStreamPlayer3D
+var up_pressed = false
+var down_pressed = false
+var left_pressed = false
+var right_pressed = false
 
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
@@ -32,6 +36,15 @@ func _physics_process(delta):
 		input_dir -= transform.basis.x
 	if Input.is_action_pressed(\"move_right\"):
 		input_dir += transform.basis.x
+		
+	if up_pressed == true:
+		input_dir -= transform.basis.z
+	if down_pressed == true:
+		input_dir += transform.basis.z
+	if left_pressed == true:
+		input_dir -= transform.basis.x
+	if right_pressed == true:
+		input_dir += transform.basis.x
 
 	velocity = input_dir.normalized() * SPEED
 	move_and_slide()
@@ -42,6 +55,27 @@ func _physics_process(delta):
 		else:
 			if footstep.playing:
 				footstep.stop
+
+
+func _on_up_button_down() -> void:
+	up_pressed = true
+func _on_up_button_up() -> void:
+	up_pressed = false
+	
+func _on_down_button_down() -> void:
+	down_pressed = true
+func _on_down_button_up() -> void:
+	down_pressed = false
+	
+func _on_left_button_down() -> void:
+	left_pressed = true
+func _on_left_button_up() -> void:
+	left_pressed = false
+	
+func _on_right_button_down() -> void:
+	right_pressed = true
+func _on_right_button_up() -> void:
+	right_pressed = false
 "
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cvnsp"]

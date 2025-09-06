@@ -40,7 +40,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.64005, 3.93126, -0.749588)
 transform = Transform3D(70.6574, 0, 0, 0, 1.06739, 0, 0, 0, 1.55471, 0.837425, 0.212412, 0.027216)
 
 [node name="sidewalk-p1" parent="." instance=ExtResource("3_8gbba")]
-transform = Transform3D(-4.37114e-08, 0, 7.3494, 0, 1, 0, -1, 0, -3.21252e-07, -1.17067, 0.208884, -2.79475)
+transform = Transform3D(-4.37114e-08, 0, 1440.61, 0, 1, 0, -1, 0, -6.29709e-05, -1.17067, 0.208884, -2.79475)
 
 [node name="streetlight1" parent="." instance=ExtResource("4_jjvhh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.883911, 0, -0.605435)
@@ -79,7 +79,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.176
 [node name="Bus" parent="StaticBody3D" instance=ExtResource("5_21xkr")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.314107, 0.0262549, 0.109802)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.318436, 0.0342278, 0.109007)
 shape = SubResource("BoxShape3D_kry3j")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -216,8 +216,66 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer3"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Up" type="Button" parent="CanvasLayer3/Control"]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 402.0
+offset_right = 166.0
+offset_bottom = 478.0
+text = "Up"
+
+[node name="Down" type="Button" parent="CanvasLayer3/Control"]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 554.0
+offset_right = 166.0
+offset_bottom = 630.0
+text = "Down"
+
+[node name="Left" type="Button" parent="CanvasLayer3/Control"]
+layout_mode = 0
+offset_top = 478.0
+offset_right = 83.0
+offset_bottom = 554.0
+text = "Left"
+
+[node name="Right" type="Button" parent="CanvasLayer3/Control"]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 478.0
+offset_right = 249.0
+offset_bottom = 554.0
+text = "Right"
+
+[node name="CanvasLayer4" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer4"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CheckButton" type="CheckButton" parent="CanvasLayer4/Control"]
+offset_right = 171.0
+offset_bottom = 40.0
+text = "Mobile Controls"
+
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
 [connection signal="body_entered" from="Area3D2" to="." method="_on_area_3d_2_body_entered"]
+[connection signal="button_down" from="CanvasLayer3/Control/Up" to="Player" method="_on_up_button_down"]
+[connection signal="button_down" from="CanvasLayer3/Control/Down" to="." method="_on_down_button_down"]
+[connection signal="button_down" from="CanvasLayer3/Control/Down" to="Player" method="_on_down_button_down"]
+[connection signal="button_down" from="CanvasLayer3/Control/Left" to="Player" method="_on_left_button_down"]
+[connection signal="button_down" from="CanvasLayer3/Control/Right" to="Player" method="_on_right_button_down"]
+[connection signal="toggled" from="CanvasLayer4/Control/CheckButton" to="." method="_on_check_button_toggled"]
