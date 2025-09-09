@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cy26un41gtn68"]
+[gd_scene load_steps=16 format=3 uid="uid://cy26un41gtn68"]
 
 [ext_resource type="Script" uid="uid://bt4afj5ml610" path="res://Scripts/player.gd" id="1_fkybt"]
 [ext_resource type="Texture2D" uid="uid://cnoajor1jp0p1" path="res://Textures/B_Stickman_Upright.png" id="2_f1ek2"]
@@ -9,6 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://bvltib7j1j028" path="res://Textures/B_Stickman_Down.png" id="4_gymyn"]
 [ext_resource type="Texture2D" uid="uid://ol5piqho7jan" path="res://Textures/Stickman_Left.png" id="5_f1ek2"]
 [ext_resource type="Texture2D" uid="uid://d1gjpa0cfwqgk" path="res://Textures/B_Stickman_Left.png" id="5_pu2lt"]
+[ext_resource type="Texture2D" uid="uid://bge3uiv0posdf" path="res://Textures/R_Stickman_Upright.png" id="6_ukyrk"]
+[ext_resource type="Texture2D" uid="uid://bhxpp4336ulqd" path="res://Textures/R_Stickman_Right.png" id="7_7dp3o"]
+[ext_resource type="Texture2D" uid="uid://sae8b86nit6l" path="res://Textures/R_Srickman_Down.png" id="8_h4iuc"]
+[ext_resource type="Texture2D" uid="uid://rfhi7pe36o7v" path="res://Textures/R_Stickman_Left.png" id="9_fd4e3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tx1dd"]
 animations = [{
@@ -30,11 +34,20 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_x3wgy")
+"duration": 2.0,
+"texture": ExtResource("6_ukyrk")
+}, {
+"duration": 2.0,
+"texture": ExtResource("7_7dp3o")
+}, {
+"duration": 2.0,
+"texture": ExtResource("8_h4iuc")
+}, {
+"duration": 2.0,
+"texture": ExtResource("9_fd4e3")
 }],
 "loop": true,
-"name": &"Idle",
+"name": &"Red_Rotating",
 "speed": 5.0
 }, {
 "frames": [{
@@ -69,7 +82,8 @@ script = ExtResource("1_fkybt")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(273, 125)
 sprite_frames = SubResource("SpriteFrames_tx1dd")
-animation = &"Blue_Rotating"
+animation = &"Red_Rotating"
+frame_progress = 0.936147
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(271, 125)

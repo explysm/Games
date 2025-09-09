@@ -37,7 +37,7 @@ func _process(delta: float) -> void:
 			$AnimatedSprite2D.animation = "Rotating"
 			$AnimatedSprite2D.flip_v = velocity.y > 0
 			
-	elif v.hoodie == 1:
+	elif v.hoodie == 2:
 		if velocity.x != 0:
 			$AnimatedSprite2D.animation = "Blue_Rotating"
 			$AnimatedSprite2D.flip_v = false
@@ -46,6 +46,16 @@ func _process(delta: float) -> void:
 		elif velocity.y != 0:
 			$AnimatedSprite2D.animation = "Blue_Rotating"
 			$AnimatedSprite2D.flip_v = velocity.y > 0
+	elif v.hoodie == 3:
+		if velocity.x != 0:
+			$AnimatedSprite2D.animation = "Red_Rotating"
+			$AnimatedSprite2D.flip_v = false
+		# See the note below about the following boolean assignment.
+			$AnimatedSprite2D.flip_h = velocity.x < 0
+		elif velocity.y != 0:
+			$AnimatedSprite2D.animation = "Red_Rotating"
+			$AnimatedSprite2D.flip_v = velocity.y > 0
+
 	 # Movement using Input functions:
 	move_vector = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	position += move_vector * speed * delta

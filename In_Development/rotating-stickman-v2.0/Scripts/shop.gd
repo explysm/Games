@@ -4,6 +4,8 @@ extends CanvasLayer
 @onready var BuyBlue = $BGS/Hoodies/Buttons/BuyBlue
 @onready var BoughtBlue = $BGS/Hoodies/Buttons/BoughtBlue
 
+@onready var BuyRed = $BGS/Hoodies/Buttons/BuyRed
+@onready var BoughtRed = $BGS/Hoodies/Buttons/BoughtRed
 ## Multipliers
 @onready var x2 = $BGS/Multipliers/Buttons/Buy2x
 @onready var x3 = $BGS/Multipliers/Buttons/Buy3x
@@ -25,6 +27,12 @@ func _ready():
 	else:
 		BuyBlue.visible = false
 		BoughtBlue.visible = true
+		
+	if v.red == false:
+		BoughtRed.visible = false
+	else:
+		BuyRed.visible = false
+		BoughtRed.visible = true
 ## Multipliers -
 	if v.multiplier <1:
 		x2.visible = true
@@ -41,6 +49,8 @@ func _process(delta):
 		stickman.animation = "default"
 	elif v.hoodie == 2:
 		stickman.animation = "blue"
+	elif v.hoodie == 3:
+		stickman.animation = "red"
 
 ## Buy functions Hoodies
 func _on_buy_blue_pressed() -> void:
@@ -50,9 +60,20 @@ func _on_buy_blue_pressed() -> void:
 		BuyBlue.visible = false
 		BoughtBlue.visible = true
 		v.blue = true
-		print("Bought Blue Hoodie for $200a")
+		print("Bought Blue Hoodie for 200$")
 func _on_bought_blue_pressed() -> void:
 	v.hoodie = 2
+	
+func _on_buy_red_pressed() -> void:
+	if v.money > 499:
+		v.hoodie = 3
+		v.money -=500
+		BuyRed.visible = false
+		BoughtRed.visible = true
+		v.red = true
+		print("Bought Red Hoodie for 500$")
+func _on_bought_red_pressed() -> void:
+	v.hoodie - 3
 
 ## Buy functions multipliers
 func _on_buy_2x_pressed() -> void:

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://b7epu62hb8cp"]
+[gd_scene load_steps=6 format=3 uid="uid://b7epu62hb8cp"]
 
 [ext_resource type="Texture2D" uid="uid://ine1m4ev0yo7" path="res://Textures/Stickman_Upright.png" id="1_fdj0q"]
 [ext_resource type="Script" uid="uid://dh7gvvsfwy46r" path="res://Scripts/shop.gd" id="1_k6jq0"]
 [ext_resource type="Texture2D" uid="uid://cnoajor1jp0p1" path="res://Textures/B_Stickman_Upright.png" id="2_io27d"]
+[ext_resource type="Texture2D" uid="uid://bge3uiv0posdf" path="res://Textures/R_Stickman_Upright.png" id="4_fdj0q"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_s8dlv"]
 animations = [{
@@ -20,6 +21,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_fdj0q")
+}],
+"loop": true,
+"name": &"red",
 "speed": 5.0
 }]
 
@@ -69,10 +78,9 @@ text = "Hoodies"
 [node name="RegularStickman" type="AnimatedSprite2D" parent="BGS"]
 position = Vector2(99, 161)
 sprite_frames = SubResource("SpriteFrames_s8dlv")
-animation = &"blue"
+animation = &"red"
 
 [node name="Hoodies" type="CanvasLayer" parent="BGS"]
-visible = false
 
 [node name="Buttons" type="Control" parent="BGS/Hoodies"]
 layout_mode = 3
@@ -98,6 +106,24 @@ offset_right = 435.0
 offset_bottom = 333.0
 text = "Change"
 
+[node name="BuyRed" type="Button" parent="BGS/Hoodies/Buttons"]
+layout_mode = 0
+offset_left = 465.0
+offset_top = 247.0
+offset_right = 522.0
+offset_bottom = 311.0
+scale = Vector2(1.78571, 1.375)
+text = "Buy
+500$"
+
+[node name="BoughtRed" type="Button" parent="BGS/Hoodies/Buttons"]
+layout_mode = 0
+offset_left = 466.0
+offset_top = 248.0
+offset_right = 567.0
+offset_bottom = 335.0
+text = "Change"
+
 [node name="Default" type="Button" parent="BGS/Hoodies/Buttons"]
 layout_mode = 0
 offset_left = 217.0
@@ -106,15 +132,21 @@ offset_right = 318.0
 offset_bottom = 335.0
 text = "Change"
 
-[node name="Blue" type="Sprite2D" parent="BGS/Hoodies"]
-position = Vector2(385, 176)
-texture = ExtResource("2_io27d")
-
 [node name="Default" type="Sprite2D" parent="BGS/Hoodies"]
 position = Vector2(266, 175)
 texture = ExtResource("1_fdj0q")
 
+[node name="Blue" type="Sprite2D" parent="BGS/Hoodies"]
+position = Vector2(385, 176)
+scale = Vector2(1, 1)
+texture = ExtResource("2_io27d")
+
+[node name="Sprite2D" type="Sprite2D" parent="BGS/Hoodies"]
+position = Vector2(515, 177)
+texture = ExtResource("4_fdj0q")
+
 [node name="Multipliers" type="CanvasLayer" parent="BGS"]
+visible = false
 
 [node name="Buttons" type="Control" parent="BGS/Multipliers"]
 layout_mode = 3
@@ -147,6 +179,8 @@ Buy
 [connection signal="pressed" from="BGS/Buttons/Hoodies" to="." method="_on_hoodies_pressed"]
 [connection signal="pressed" from="BGS/Hoodies/Buttons/BuyBlue" to="." method="_on_buy_blue_pressed"]
 [connection signal="pressed" from="BGS/Hoodies/Buttons/BoughtBlue" to="." method="_on_bought_blue_pressed"]
+[connection signal="pressed" from="BGS/Hoodies/Buttons/BuyRed" to="." method="_on_buy_red_pressed"]
+[connection signal="pressed" from="BGS/Hoodies/Buttons/BoughtRed" to="." method="_on_bought_red_pressed"]
 [connection signal="pressed" from="BGS/Hoodies/Buttons/Default" to="." method="_on_default_pressed"]
 [connection signal="pressed" from="BGS/Multipliers/Buttons/Buy2x" to="." method="_on_buy_2x_pressed"]
 [connection signal="pressed" from="BGS/Multipliers/Buttons/Buy3x" to="." method="_on_buy_3x_pressed"]
