@@ -1,0 +1,98 @@
+[gd_scene load_steps=7 format=3 uid="uid://ba6wr367e1ca3"]
+
+[ext_resource type="Script" uid="uid://d16cnqr0qecm2" path="res://Scripts/main_scene.gd" id="1_8gbba"]
+[ext_resource type="PackedScene" uid="uid://bar4643f8e3b6" path="res://Scenes/settings/settings.tscn" id="1_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://cy26un41gtn68" path="res://Scenes/player.tscn" id="1_jjgbg"]
+[ext_resource type="Script" uid="uid://uhglxtrdybra" path="res://Scripts/main.gd" id="1_jjvhh"]
+
+[sub_resource type="MeshTexture" id="MeshTexture_jjgbg"]
+
+[sub_resource type="GDScript" id="GDScript_jjvhh"]
+script/source = "extends Button
+"
+
+[node name="Main" type="CanvasLayer"]
+script = ExtResource("1_jjvhh")
+
+[node name="MainScene" type="CanvasLayer" parent="."]
+script = ExtResource("1_8gbba")
+
+[node name="BG" type="ColorRect" parent="MainScene"]
+modulate = Color(0.351563, 0.351563, 0.351563, 1)
+show_behind_parent = true
+offset_left = -120.0
+offset_top = -94.0
+offset_right = 1243.0
+offset_bottom = 730.0
+color = Color(0.868985, 0.868985, 0.868985, 1)
+
+[node name="Player" parent="MainScene" instance=ExtResource("1_jjgbg")]
+position = Vector2(231, 158)
+
+[node name="Buttons" type="Control" parent="MainScene"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1.2, 1)
+
+[node name="Settings_Btn" type="Button" parent="MainScene/Buttons"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 796.667
+offset_top = 11.0
+offset_right = 870.667
+offset_bottom = 42.0
+grow_horizontal = 0
+scale = Vector2(1.59045, 1.3944)
+text = "Settings"
+icon = SubResource("MeshTexture_jjgbg")
+
+[node name="Shop_Btn" type="Button" parent="MainScene/Buttons"]
+layout_mode = 0
+offset_left = 763.0
+offset_top = 11.0
+offset_right = 834.0
+offset_bottom = 54.0
+text = "Shop"
+script = SubResource("GDScript_jjvhh")
+
+[node name="Money_Click" type="Button" parent="MainScene/Buttons"]
+layout_mode = 0
+offset_left = 408.333
+offset_top = 13.0
+offset_right = 416.333
+offset_bottom = 21.0
+scale = Vector2(8.01015, 9.07164)
+
+[node name="Click here" type="Label" parent="MainScene/Buttons/Money_Click"]
+layout_mode = 0
+offset_left = -28.0894
+offset_top = 0.551169
+offset_right = 81.9106
+offset_bottom = 23.5512
+scale = Vector2(0.18496, 0.220296)
+text = "Click Here >>>"
+
+[node name="Money" type="Label" parent="MainScene"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Money:"
+
+[node name="Money_Count" type="Label" parent="MainScene/Money"]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 2.0
+offset_right = 99.0
+offset_bottom = 25.0
+scale = Vector2(1.625, 0.97286)
+
+[node name="Settings" parent="." instance=ExtResource("1_bo1nx")]
+visible = false
+
+[connection signal="pressed" from="MainScene/Buttons/Settings_Btn" to="MainScene" method="_on_settings_btn_pressed"]
+[connection signal="pressed" from="MainScene/Buttons/Settings_Btn" to="Settings" method="_on_settings_btn_pressed"]
+[connection signal="pressed" from="MainScene/Buttons/Shop_Btn" to="." method="_on_shop_btn_pressed"]
+[connection signal="pressed" from="MainScene/Buttons/Money_Click" to="." method="_on_money_click_pressed"]
