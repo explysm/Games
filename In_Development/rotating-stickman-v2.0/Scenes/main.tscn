@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://ba6wr367e1ca3"]
+[gd_scene load_steps=8 format=3 uid="uid://ba6wr367e1ca3"]
 
 [ext_resource type="Script" uid="uid://d16cnqr0qecm2" path="res://Scripts/main_scene.gd" id="1_8gbba"]
 [ext_resource type="PackedScene" uid="uid://bar4643f8e3b6" path="res://Scenes/settings/settings.tscn" id="1_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://cy26un41gtn68" path="res://Scenes/player.tscn" id="1_jjgbg"]
 [ext_resource type="Script" uid="uid://uhglxtrdybra" path="res://Scripts/main.gd" id="1_jjvhh"]
+[ext_resource type="Script" uid="uid://c0a25ifcxmfnv" path="res://addons/virtual_joystick/virtual_joystick_instantiator.gd" id="4_kry3j"]
 
 [sub_resource type="MeshTexture" id="MeshTexture_jjgbg"]
 
@@ -88,6 +89,16 @@ offset_top = 2.0
 offset_right = 99.0
 offset_bottom = 25.0
 scale = Vector2(1.625, 0.97286)
+
+[node name="Virtual Joystick" type="Control" parent="MainScene"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -10.0
+offset_top = 637.0
+offset_right = 2.0
+offset_bottom = 677.0
+script = ExtResource("4_kry3j")
+metadata/_custom_type_script = "uid://c0a25ifcxmfnv"
 
 [node name="Settings" parent="." instance=ExtResource("1_bo1nx")]
 visible = false
