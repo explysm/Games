@@ -4,9 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://bar4643f8e3b6" path="res://Scenes/settings/settings.tscn" id="1_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://cy26un41gtn68" path="res://Scenes/player.tscn" id="1_jjgbg"]
 [ext_resource type="Script" uid="uid://uhglxtrdybra" path="res://Scripts/main.gd" id="1_jjvhh"]
+[ext_resource type="Texture2D" uid="uid://4hfukros583l" path="res://Textures/button.png" id="4_21xkr"]
 [ext_resource type="Script" uid="uid://c0a25ifcxmfnv" path="res://addons/virtual_joystick/virtual_joystick_instantiator.gd" id="4_kry3j"]
-
-[sub_resource type="MeshTexture" id="MeshTexture_jjgbg"]
 
 [sub_resource type="GDScript" id="GDScript_jjvhh"]
 script/source = "extends Button
@@ -21,10 +20,11 @@ script = ExtResource("1_8gbba")
 [node name="BG" type="ColorRect" parent="MainScene"]
 modulate = Color(0.351563, 0.351563, 0.351563, 1)
 show_behind_parent = true
-offset_left = -120.0
-offset_top = -94.0
-offset_right = 1243.0
-offset_bottom = 730.0
+offset_left = -1059.0
+offset_top = -562.0
+offset_right = 304.0
+offset_bottom = 262.0
+scale = Vector2(2.40235, 2.305)
 color = Color(0.868985, 0.868985, 0.868985, 1)
 
 [node name="Player" parent="MainScene" instance=ExtResource("1_jjgbg")]
@@ -37,27 +37,39 @@ offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(1.2, 1)
 
+[node name="Settings Button" type="Sprite2D" parent="MainScene/Buttons"]
+position = Vector2(1002.5, 61)
+scale = Vector2(0.518239, 0.603528)
+texture = ExtResource("4_21xkr")
+
+[node name="Shop Button" type="Sprite2D" parent="MainScene/Buttons"]
+position = Vector2(806.667, 61)
+scale = Vector2(0.518239, 0.603528)
+texture = ExtResource("4_21xkr")
+
 [node name="Settings_Btn" type="Button" parent="MainScene/Buttons"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = 796.667
+offset_left = 894.167
 offset_top = 11.0
-offset_right = 870.667
+offset_right = 968.167
 offset_bottom = 42.0
 grow_horizontal = 0
-scale = Vector2(1.59045, 1.3944)
+scale = Vector2(1.89282, 3.00896)
 text = "Settings"
-icon = SubResource("MeshTexture_jjgbg")
+flat = true
 
 [node name="Shop_Btn" type="Button" parent="MainScene/Buttons"]
 layout_mode = 0
-offset_left = 763.0
-offset_top = 11.0
-offset_right = 834.0
-offset_bottom = 54.0
+offset_left = 723.333
+offset_top = 3.0
+offset_right = 794.333
+offset_bottom = 46.0
+scale = Vector2(2.20507, 2.53336)
 text = "Shop"
+flat = true
 script = SubResource("GDScript_jjvhh")
 
 [node name="Money_Click" type="Button" parent="MainScene/Buttons"]
