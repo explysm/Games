@@ -8,18 +8,12 @@
 script = ExtResource("1_ervou")
 
 [node name="Settings_BG" type="ColorRect" parent="."]
-offset_left = 238.0
-offset_top = -1.0
-offset_right = 278.0
-offset_bottom = 39.0
-scale = Vector2(23.3233, 16.5801)
+offset_left = 277.0
+offset_top = 4563.0
+offset_right = 317.0
+offset_bottom = 4603.0
+scale = Vector2(1586.89, -736.167)
 color = Color(0.229112, 0.229112, 0.229112, 1)
-
-[node name="Buttons_BG" type="ColorRect" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(6.92976, 16.2577)
-color = Color(0.316785, 0.316785, 0.316785, 1)
 
 [node name="Social" type="CanvasLayer" parent="."]
 
@@ -72,16 +66,5 @@ offset_bottom = 46.0
 scale = Vector2(3.54395, 3.02276)
 tooltip_text = "Resume Game"
 text = "Resume"
-
-[node name="Graphics_Btn" type="Button" parent="Buttons"]
-layout_mode = 0
-offset_left = 11.0
-offset_top = 158.0
-offset_right = 88.0
-offset_bottom = 189.0
-scale = Vector2(3.22409, 3.3057)
-tooltip_text = "Graphics Menu"
-text = "Graphics
-"
 
 [connection signal="pressed" from="Buttons/Resume_Btn" to="." method="_on_resume_btn_pressed"]

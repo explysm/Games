@@ -21,6 +21,10 @@ config/icon="uid://ine1m4ev0yo7"
 
 v="*res://Scripts/variables.gd"
 
+[display]
+
+window/size/mode=2
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/virtual_joystick/plugin.cfg")
