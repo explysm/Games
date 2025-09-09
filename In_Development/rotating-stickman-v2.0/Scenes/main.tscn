@@ -103,6 +103,7 @@ offset_bottom = 25.0
 scale = Vector2(1.625, 0.97286)
 
 [node name="Virtual Joystick" type="Control" parent="MainScene"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = -10.0
