@@ -24,7 +24,7 @@ v="*res://Scripts/variables.gd"
 [display]
 
 window/size/mode=2
-mouse_cursor/custom_image="uid://ine1m4ev0yo7"
+window/stretch/aspect="ignore"
 
 [editor_plugins]
 
