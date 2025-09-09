@@ -72,6 +72,7 @@ sprite_frames = SubResource("SpriteFrames_s8dlv")
 animation = &"blue"
 
 [node name="Hoodies" type="CanvasLayer" parent="BGS"]
+visible = false
 
 [node name="Buttons" type="Control" parent="BGS/Hoodies"]
 layout_mode = 3
@@ -113,7 +114,39 @@ texture = ExtResource("2_io27d")
 position = Vector2(266, 175)
 texture = ExtResource("1_fdj0q")
 
+[node name="Multipliers" type="CanvasLayer" parent="BGS"]
+
+[node name="Buttons" type="Control" parent="BGS/Multipliers"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Buy2x" type="Button" parent="BGS/Multipliers/Buttons"]
+layout_mode = 0
+offset_left = 219.0
+offset_top = 1.0
+offset_right = 320.0
+offset_bottom = 90.0
+text = "2x
+Buy
+500$"
+
+[node name="Buy3x" type="Button" parent="BGS/Multipliers/Buttons"]
+layout_mode = 0
+offset_left = 330.0
+offset_top = 1.0
+offset_right = 432.0
+offset_bottom = 90.0
+text = "3x
+Buy
+1500$"
+
 [connection signal="pressed" from="BGS/Buttons/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="BGS/Buttons/Multipliers" to="." method="_on_multipliers_pressed"]
+[connection signal="pressed" from="BGS/Buttons/Hoodies" to="." method="_on_hoodies_pressed"]
 [connection signal="pressed" from="BGS/Hoodies/Buttons/BuyBlue" to="." method="_on_buy_blue_pressed"]
 [connection signal="pressed" from="BGS/Hoodies/Buttons/BoughtBlue" to="." method="_on_bought_blue_pressed"]
 [connection signal="pressed" from="BGS/Hoodies/Buttons/Default" to="." method="_on_default_pressed"]
+[connection signal="pressed" from="BGS/Multipliers/Buttons/Buy2x" to="." method="_on_buy_2x_pressed"]
+[connection signal="pressed" from="BGS/Multipliers/Buttons/Buy3x" to="." method="_on_buy_3x_pressed"]
