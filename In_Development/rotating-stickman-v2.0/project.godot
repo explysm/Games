@@ -11,8 +11,11 @@ config_version=5
 [application]
 
 config/name="Rotating Stickman v2.0"
+config/version="2.0.0.0"
 run/main_scene="uid://ba6wr367e1ca3"
 config/features=PackedStringArray("4.4", "Mobile")
+boot_splash/image="uid://bvf3wcwmxvlj"
+config/icon="uid://ine1m4ev0yo7"
 
 [autoload]
 
@@ -53,3 +56,4 @@ pointing/emulate_mouse_from_touch=false
 [rendering]
 
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true
