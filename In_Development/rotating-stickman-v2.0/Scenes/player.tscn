@@ -83,7 +83,7 @@ script = ExtResource("1_fkybt")
 position = Vector2(273, 125)
 sprite_frames = SubResource("SpriteFrames_tx1dd")
 animation = &"Red_Rotating"
-frame_progress = 0.936147
+frame_progress = 0.250539
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(271, 125)

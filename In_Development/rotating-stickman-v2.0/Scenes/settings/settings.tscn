@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bar4643f8e3b6"]
+[gd_scene load_steps=5 format=3 uid="uid://bar4643f8e3b6"]
 
 [ext_resource type="Script" uid="uid://cqjl38encvcck" path="res://Scripts/settings.gd" id="1_ervou"]
 [ext_resource type="Texture2D" uid="uid://1wdfk5wr3waq" path="res://Textures/discord.png" id="2_piiv8"]
 [ext_resource type="Texture2D" uid="uid://bvf3wcwmxvlj" path="res://Textures/itch.png" id="3_f1q7l"]
+[ext_resource type="AudioStream" uid="uid://bd437n38sxpm4" path="res://sounds/strawberry_cheesecake.mp3" id="4_f1q7l"]
 
 [node name="Settings" type="CanvasLayer"]
 script = ExtResource("1_ervou")
@@ -75,4 +76,38 @@ scale = Vector2(3.54395, 3.02276)
 tooltip_text = "Resume Game"
 text = "Resume"
 
+[node name="Sound_Btn" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 143.0
+offset_right = 82.0
+offset_bottom = 174.0
+scale = Vector2(3.54395, 3.02276)
+tooltip_text = "Resume Game"
+text = "Sound
+"
+
+[node name="Sound_Tab" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Music" type="CheckBox" parent="Sound_Tab"]
+layout_mode = 0
+offset_left = 291.0
+offset_top = 26.0
+offset_right = 365.0
+offset_bottom = 57.0
+scale = Vector2(2.25648, 2.4126)
+text = "Music"
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_f1q7l")
+volume_db = 24.0
+max_distance = 4096.0
+parameters/looping = true
+
 [connection signal="pressed" from="Buttons/Resume_Btn" to="." method="_on_resume_btn_pressed"]
+[connection signal="pressed" from="Buttons/Sound_Btn" to="." method="_on_sound_btn_pressed"]
+[connection signal="toggled" from="Sound_Tab/Music" to="." method="_on_check_box_toggled"]

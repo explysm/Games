@@ -30,6 +30,11 @@ window/stretch/aspect="ignore"
 
 enabled=PackedStringArray("res://addons/virtual_joystick/plugin.cfg")
 
+[gui]
+
+theme/custom_font="uid://bbcuj36cppklv"
+theme/default_font_multichannel_signed_distance_field=true
+
 [input]
 
 move_up={

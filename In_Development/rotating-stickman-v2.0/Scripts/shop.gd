@@ -73,7 +73,7 @@ func _on_buy_red_pressed() -> void:
 		v.red = true
 		print("Bought Red Hoodie for 500$")
 func _on_bought_red_pressed() -> void:
-	v.hoodie - 3
+	v.hoodie = 3
 
 ## Buy functions multipliers
 func _on_buy_2x_pressed() -> void:

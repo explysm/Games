@@ -138,7 +138,6 @@ texture = ExtResource("1_fdj0q")
 
 [node name="Blue" type="Sprite2D" parent="BGS/Hoodies"]
 position = Vector2(385, 176)
-scale = Vector2(1, 1)
 texture = ExtResource("2_io27d")
 
 [node name="Sprite2D" type="Sprite2D" parent="BGS/Hoodies"]
