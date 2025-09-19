@@ -52,8 +52,9 @@ scale = Vector2(2.83687, 2.96015)
 
 [node name="Resume" type="Button" parent="BGS/Buttons"]
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 1.41
+offset_right = 71.41
+offset_bottom = 25.0
 text = "Resume"
 
 [node name="Multipliers" type="Button" parent="BGS/Buttons"]

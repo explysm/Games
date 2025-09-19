@@ -1,11 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://bar4643f8e3b6"]
+[gd_scene load_steps=5 format=3 uid="uid://c60ru1hw0uk6"]
 
-[ext_resource type="Script" uid="uid://cqjl38encvcck" path="res://Scripts/settings.gd" id="1_ervou"]
-[ext_resource type="Texture2D" uid="uid://1wdfk5wr3waq" path="res://Textures/discord.png" id="2_piiv8"]
-[ext_resource type="Texture2D" uid="uid://bvf3wcwmxvlj" path="res://Textures/itch.png" id="3_f1q7l"]
+[ext_resource type="Script" uid="uid://cpps61hbutul6" path="res://Scripts/settingsMM.gd" id="1_s41ke"]
+[ext_resource type="Texture2D" uid="uid://1wdfk5wr3waq" path="res://Textures/discord.png" id="2_ddgi4"]
+[ext_resource type="Texture2D" uid="uid://bvf3wcwmxvlj" path="res://Textures/itch.png" id="3_ikhs8"]
+[ext_resource type="Script" uid="uid://n5ro403qcuvr" path="res://Scenes/settings/ServerBrowser.gd.gd" id="4_ddgi4"]
 
 [node name="Settings" type="CanvasLayer"]
-script = ExtResource("1_ervou")
+script = ExtResource("1_s41ke")
 
 [node name="Settings_BG" type="ColorRect" parent="."]
 offset_left = 277.0
@@ -39,7 +40,7 @@ offset_top = 519.0
 offset_right = 263.0
 offset_bottom = 775.0
 scale = Vector2(0.213047, 0.213779)
-texture = ExtResource("2_piiv8")
+texture = ExtResource("2_ddgi4")
 
 [node name="Itch" type="Label" parent="Social"]
 offset_left = 79.0
@@ -55,7 +56,7 @@ offset_top = 582.0
 offset_right = 508.0
 offset_bottom = 1082.0
 scale = Vector2(0.105103, 0.0984523)
-texture = ExtResource("3_f1q7l")
+texture = ExtResource("3_ikhs8")
 
 [node name="Buttons" type="Control" parent="."]
 layout_mode = 3
@@ -75,16 +76,6 @@ scale = Vector2(3.54395, 3.02276)
 tooltip_text = "Resume Game"
 text = "Resume"
 
-[node name="Save_And_Quit" type="Button" parent="Buttons"]
-layout_mode = 0
-offset_left = 15.0
-offset_top = 354.00003
-offset_right = 110.0
-offset_bottom = 385.00003
-scale = Vector2(2.6631331, 2.715284)
-tooltip_text = "Resume Game"
-text = "Save & Quit"
-
 [node name="Sound_Btn" type="Button" parent="Buttons"]
 layout_mode = 0
 offset_left = 12.0
@@ -94,6 +85,18 @@ offset_bottom = 174.0
 scale = Vector2(3.54395, 3.02276)
 tooltip_text = "Resume Game"
 text = "Sound
+"
+
+[node name="Server_Btn" type="Button" parent="Buttons"]
+visible = false
+layout_mode = 0
+offset_left = 13.0
+offset_top = 261.0
+offset_right = 83.0
+offset_bottom = 292.0
+scale = Vector2(3.54395, 3.02276)
+tooltip_text = "Resume Game"
+text = "Servers
 "
 
 [node name="Sound_Tab" type="Control" parent="."]
@@ -111,7 +114,41 @@ offset_bottom = 57.0
 scale = Vector2(2.25648, 2.4126)
 text = "Music"
 
+[node name="Server_Tab" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("4_ddgi4")
+
+[node name="Host" type="Button" parent="Server_Tab"]
+layout_mode = 0
+offset_left = 594.0
+offset_top = 73.0
+offset_right = 681.0
+offset_bottom = 98.0
+scale = Vector2(1.83137, 2.47338)
+text = "Host Game"
+
+[node name="IPAddressLineEdit" type="LineEdit" parent="Server_Tab"]
+layout_mode = 0
+offset_left = 394.0
+offset_top = 148.0
+offset_right = 458.312
+offset_bottom = 172.333
+scale = Vector2(8.93967, 2.99736)
+
+[node name="Join" type="Button" parent="Server_Tab"]
+layout_mode = 0
+offset_left = 551.0
+offset_top = 240.0
+offset_right = 642.0
+offset_bottom = 265.0
+scale = Vector2(2.57949, 4.23686)
+text = "Join By IP"
+
 [connection signal="pressed" from="Buttons/Resume_Btn" to="." method="_on_resume_btn_pressed"]
-[connection signal="pressed" from="Buttons/Save_And_Quit" to="." method="_on_save_and_quit_pressed"]
 [connection signal="pressed" from="Buttons/Sound_Btn" to="." method="_on_sound_btn_pressed"]
+[connection signal="pressed" from="Buttons/Server_Btn" to="." method="_on_server_btn_pressed"]
 [connection signal="toggled" from="Sound_Tab/Music" to="." method="_on_check_box_toggled"]
+[connection signal="pressed" from="Server_Tab/Host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="Server_Tab/Join" to="Server_Tab" method="_on_join_pressed"]

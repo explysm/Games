@@ -5,44 +5,40 @@ extends CanvasLayer
 @onready var Itch2 = $Social/Itch2
 
 @onready var SoundTab = $Sound_Tab
-@onready var Music = $Music
 
-var Playing : bool = false
 func _ready():
-    hide()
-    Discord.visible = false
-    Discord2.visible = false
-    Itch.visible = false
-    Itch2.visible = false
-    SoundTab.visible = false
-
-func _process(delta):
-     pass
+	hide()
+	Discord.visible = false
+	Discord2.visible = false
+	Itch.visible = false
+	Itch2.visible = false
+	pass
 func _on_resume_btn_pressed() -> void:
-    hide()
-    hide()
-    Discord.visible = false
-    Discord2.visible = false
-    Itch.visible = false
-    Itch2.visible = false
-
+	hide()
+	Discord.visible = false
+	Discord2.visible = false
+	Itch.visible = false
+	Itch2.visible = false
 func _on_settings_btn_pressed() -> void:
-    show()
-    Discord.visible = true
-    Discord2.visible = true
-    Itch.visible = true
-    Itch2.visible = true
+	show()
+	Discord.visible = true
+	Discord2.visible = true
+	Itch.visible = true
+	Itch2.visible = true
 
 
 func _on_sound_btn_pressed() -> void:
-    SoundTab.visible = true
+	SoundTab.visible = true
 
 
 func _on_check_box_toggled(toggled_on: bool) -> void:
-    if Playing == true:
-        Music.stop()
-        Playing = false
-    else:
-        Music.play()
-        Playing = true
-    
+	if v.music == true:
+		v.music= false
+	else:
+		v.music = true
+	
+
+
+func _on_save_and_quit_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
+	v.save()

@@ -12,18 +12,20 @@ config_version=5
 
 config/name="Rotating Stickman v2.0"
 config/version="2.0.0.0"
-run/main_scene="uid://ba6wr367e1ca3"
-config/features=PackedStringArray("4.4", "Mobile")
+run/main_scene="uid://brkdycfwhmxx7"
+config/features=PackedStringArray("4.5", "Mobile")
 boot_splash/image="uid://bvf3wcwmxvlj"
 config/icon="uid://ine1m4ev0yo7"
 
 [autoload]
 
 v="*res://Scripts/variables.gd"
+mm="*res://Scripts/MultiplayerManager.gd"
 
 [display]
 
 window/size/mode=2
+window/stretch/mode="canvas_items"
 window/stretch/aspect="ignore"
 
 [editor_plugins]
@@ -32,8 +34,8 @@ enabled=PackedStringArray("res://addons/virtual_joystick/plugin.cfg")
 
 [gui]
 
-theme/custom_font="uid://bbcuj36cppklv"
 theme/default_font_multichannel_signed_distance_field=true
+theme/custom_font="uid://bbcuj36cppklv"
 
 [input]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ba6wr367e1ca3"]
+[gd_scene load_steps=10 format=3 uid="uid://ba6wr367e1ca3"]
 
 [ext_resource type="Script" uid="uid://d16cnqr0qecm2" path="res://Scripts/main_scene.gd" id="1_8gbba"]
 [ext_resource type="PackedScene" uid="uid://bar4643f8e3b6" path="res://Scenes/settings/settings.tscn" id="1_bo1nx"]
@@ -6,6 +6,9 @@
 [ext_resource type="Script" uid="uid://uhglxtrdybra" path="res://Scripts/main.gd" id="1_jjvhh"]
 [ext_resource type="Texture2D" uid="uid://4hfukros583l" path="res://Textures/button.png" id="4_21xkr"]
 [ext_resource type="Script" uid="uid://c0a25ifcxmfnv" path="res://addons/virtual_joystick/virtual_joystick_instantiator.gd" id="4_kry3j"]
+[ext_resource type="AudioStream" uid="uid://bd437n38sxpm4" path="res://sounds/strawberry_cheesecake.mp3" id="7_6bp64"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_21xkr"]
 
 [sub_resource type="GDScript" id="GDScript_jjvhh"]
 script/source = "extends Button
@@ -37,55 +40,6 @@ offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(1.2, 1)
 
-[node name="ColorRect" type="ColorRect" parent="MainScene/Buttons"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 18.5042
-anchor_top = -0.075
-anchor_right = 18.5042
-anchor_bottom = -0.075
-offset_left = -521.0
-offset_top = 5.0
-offset_right = -84.5001
-offset_bottom = 172.0
-grow_horizontal = 2
-color = Color(0.176471, 0.176471, 0.176471, 0.34902)
-
-[node name="Settings Button" type="Sprite2D" parent="MainScene/Buttons/ColorRect"]
-position = Vector2(115, 79)
-scale = Vector2(0.518239, 0.603528)
-texture = ExtResource("4_21xkr")
-
-[node name="Shop Button" type="Sprite2D" parent="MainScene/Buttons/ColorRect"]
-position = Vector2(320.833, 79)
-scale = Vector2(0.518239, 0.603528)
-texture = ExtResource("4_21xkr")
-
-[node name="Settings_Btn" type="Button" parent="MainScene/Buttons/ColorRect"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -192.333
-offset_top = 32.0
-offset_right = -118.333
-offset_bottom = 63.0
-grow_horizontal = 0
-scale = Vector2(1.89282, 3.00896)
-text = "Settings"
-flat = true
-
-[node name="Shop_Btn" type="Button" parent="MainScene/Buttons/ColorRect"]
-layout_mode = 0
-offset_left = 34.1666
-offset_top = 21.0
-offset_right = 105.167
-offset_bottom = 64.0
-scale = Vector2(2.20507, 2.53336)
-text = "Shop"
-flat = true
-script = SubResource("GDScript_jjvhh")
-
 [node name="Money_Click" type="Button" parent="MainScene/Buttons"]
 layout_mode = 1
 offset_left = 404.167
@@ -93,6 +47,7 @@ offset_top = 565.0
 offset_right = 412.167
 offset_bottom = 573.0
 scale = Vector2(8.01015, 9.07164)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_21xkr")
 
 [node name="Click here" type="Label" parent="MainScene/Buttons/Money_Click"]
 layout_mode = 0
@@ -102,6 +57,48 @@ offset_right = 81.9106
 offset_bottom = 23.5512
 scale = Vector2(0.18496, 0.220296)
 text = "Click Here >>>"
+
+[node name="ColorRect" type="Panel" parent="MainScene/Buttons"]
+layout_mode = 0
+offset_left = 656.667
+offset_top = 5.0
+offset_right = 955.667
+offset_bottom = 108.0
+
+[node name="Settings Button" type="Sprite2D" parent="MainScene/Buttons/ColorRect"]
+position = Vector2(225, 52)
+scale = Vector2(0.304692, 0.411139)
+texture = ExtResource("4_21xkr")
+
+[node name="Shop Button" type="Sprite2D" parent="MainScene/Buttons/ColorRect"]
+position = Vector2(82.5001, 52)
+scale = Vector2(0.322054, 0.411458)
+texture = ExtResource("4_21xkr")
+
+[node name="Settings_Btn" type="Button" parent="MainScene/Buttons/ColorRect"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -128.167
+offset_top = 21.0
+offset_right = -64.1666
+offset_bottom = 46.0
+grow_horizontal = 0
+scale = Vector2(1.7, 2.385)
+text = "Settings"
+flat = true
+
+[node name="Shop_Btn" type="Button" parent="MainScene/Buttons/ColorRect"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 15.0
+offset_right = 93.0
+offset_bottom = 52.0
+scale = Vector2(1.7, 1.953)
+text = "Shop"
+flat = true
+script = SubResource("GDScript_jjvhh")
 
 [node name="Money" type="Label" parent="MainScene"]
 offset_right = 40.0
@@ -130,7 +127,17 @@ metadata/_custom_type_script = "uid://c0a25ifcxmfnv"
 [node name="Settings" parent="." instance=ExtResource("1_bo1nx")]
 visible = false
 
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_6bp64")
+volume_db = 24.0
+max_distance = 4096.0
+parameters/looping = true
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+spawn_path = NodePath("..")
+
+[connection signal="pressed" from="MainScene/Buttons/Money_Click" to="." method="_on_money_click_pressed"]
+[connection signal="pressed" from="MainScene/Buttons/ColorRect/Settings_Btn" to="." method="_on_settings_btn_pressed"]
 [connection signal="pressed" from="MainScene/Buttons/ColorRect/Settings_Btn" to="MainScene" method="_on_settings_btn_pressed"]
 [connection signal="pressed" from="MainScene/Buttons/ColorRect/Settings_Btn" to="Settings" method="_on_settings_btn_pressed"]
 [connection signal="pressed" from="MainScene/Buttons/ColorRect/Shop_Btn" to="." method="_on_shop_btn_pressed"]
-[connection signal="pressed" from="MainScene/Buttons/Money_Click" to="." method="_on_money_click_pressed"]

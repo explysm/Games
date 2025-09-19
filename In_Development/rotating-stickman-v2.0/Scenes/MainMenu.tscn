@@ -1,0 +1,73 @@
+[gd_scene load_steps=3 format=3 uid="uid://brkdycfwhmxx7"]
+
+[ext_resource type="Script" uid="uid://coysgnbdhfdg6" path="res://Scenes/main_menu.gd" id="1_853f1"]
+[ext_resource type="Texture2D" uid="uid://ine1m4ev0yo7" path="res://Textures/Stickman_Upright.png" id="2_8saeu"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_853f1")
+
+[node name="Top" type="CanvasLayer" parent="."]
+
+[node name="Stickman" type="Sprite2D" parent="Top"]
+position = Vector2(733, 329)
+scale = Vector2(2.20332, 1.96772)
+texture = ExtResource("2_8saeu")
+
+[node name="Buttons" type="Control" parent="Top"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.6500824, 0.74250597)
+
+[node name="Play" type="Button" parent="Top/Buttons"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 4.00002
+offset_right = 54.0
+offset_bottom = 29.0
+scale = Vector2(7.02818, 5.19129)
+text = "Play"
+
+[node name="Settings" type="Button" parent="Top/Buttons"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 137.0
+offset_right = 76.0
+offset_bottom = 162.0
+scale = Vector2(4.52232, 5.96572)
+text = "Settings"
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 463.0
+offset_top = 81.0
+offset_right = 503.0
+offset_bottom = 121.0
+scale = Vector2(12.819826, 3.030186)
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 8.571276
+offset_top = 8.121593
+offset_right = 142.57127
+offset_bottom = 30.121593
+scale = Vector2(0.16201909, 0.81543964)
+text = "Rotating Stickman"
+
+[node name="Label" type="Label" parent="Panel/Label"]
+layout_mode = 0
+offset_left = 53.12643
+offset_top = 15.857989
+offset_right = 93.126434
+offset_bottom = 32.85799
+text = "v2.0"
+
+[connection signal="pressed" from="Top/Buttons/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Top/Buttons/Settings" to="." method="_on_settings_pressed"]
