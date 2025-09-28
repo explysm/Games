@@ -61,9 +61,10 @@ func _on_buy_blue_pressed() -> void:
 		BoughtBlue.visible = true
 		v.blue = true
 		print("Bought Blue Hoodie for 200$")
+		v.save()
 func _on_bought_blue_pressed() -> void:
 	v.hoodie = 2
-	
+	v.save()
 func _on_buy_red_pressed() -> void:
 	if v.money > 499:
 		v.hoodie = 3
@@ -72,8 +73,10 @@ func _on_buy_red_pressed() -> void:
 		BoughtRed.visible = true
 		v.red = true
 		print("Bought Red Hoodie for 500$")
+		v.save()
 func _on_bought_red_pressed() -> void:
 	v.hoodie = 3
+	v.save()
 
 ## Buy functions multipliers
 func _on_buy_2x_pressed() -> void:
@@ -81,14 +84,18 @@ func _on_buy_2x_pressed() -> void:
 		v.multiplier = 1
 		x2.visible = false
 		x3.visible = true
+		v.save()
 func _on_buy_3x_pressed() -> void:
 	if v.money >1449:
 		v.multiplier = 2
 		x3.visible = false
+		v.save()
 
 ## Etc
 func _on_default_pressed() -> void:
 	v.hoodie = 0
+func buy():
+	v.save()
 	
 ## Side Buttons
 func _on_multipliers_pressed() -> void:
@@ -103,3 +110,4 @@ func _on_hoodies_pressed() -> void:
 	multipliers.visible = false
 func _on_resume_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/main.tscn")
+	v.save()

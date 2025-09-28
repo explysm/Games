@@ -4,21 +4,29 @@ extends CanvasLayer
 @onready var Itch = $Social/Itch
 @onready var Itch2 = $Social/Itch2
 
-@onready var SoundTab = $Sound_Tab
-
+@onready var SoundTab = $Tabs/Sound_Tab
+@onready var MiscTab = $Tabs/Misc_Tab
+@onready var Tabs = $Tabs
 func _ready():
 	hide()
 	Discord.visible = false
 	Discord2.visible = false
 	Itch.visible = false
 	Itch2.visible = false
+	
+	MiscTab.visible = false
+	SoundTab.visible = false
 	pass
 func _on_resume_btn_pressed() -> void:
 	hide()
+	SoundTab.visible = false
+	MiscTab.visible = false
+	
 	Discord.visible = false
 	Discord2.visible = false
 	Itch.visible = false
 	Itch2.visible = false
+	v.save()
 func _on_settings_btn_pressed() -> void:
 	show()
 	Discord.visible = true
@@ -29,7 +37,10 @@ func _on_settings_btn_pressed() -> void:
 
 func _on_sound_btn_pressed() -> void:
 	SoundTab.visible = true
-
+	MiscTab.visible = false
+func _on_misc_btn_pressed() -> void:
+	MiscTab.visible = true
+	SoundTab.visible = false
 
 func _on_check_box_toggled(toggled_on: bool) -> void:
 	if v.music == true:
