@@ -2,15 +2,18 @@
 Source code for all of my developed games
 
 
----
+
+> [!IMPORTANT]
+>
+> The [games](https://games.yike.games) website will soon be removed in favor of the new game discovery in the [YikeGames app](https://github.com/explysm/yikegames), & soon on the [YikeGames website](https://yike.games).
 
 # Development
 
-Requirements:
+### Requirements:
 
-Godot x4.3 or newer.
-
-If you want to export to platforms other than web, download the latest export templates for your Godot version [here](https://godotengine.org/) 
+> Godot x4.3 or newer.
+>
+> Download the latest export templates for your Godot version [here](https://godotengine.org/) 
 
 ---
 # Note
