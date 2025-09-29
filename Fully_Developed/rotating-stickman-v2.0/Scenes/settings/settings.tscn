@@ -1,0 +1,185 @@
+[gd_scene load_steps=5 format=3 uid="uid://bar4643f8e3b6"]
+
+[ext_resource type="Script" uid="uid://cqjl38encvcck" path="res://Scripts/settings.gd" id="1_ervou"]
+[ext_resource type="Texture2D" uid="uid://1wdfk5wr3waq" path="res://Textures/discord.png" id="2_piiv8"]
+[ext_resource type="Texture2D" uid="uid://bvf3wcwmxvlj" path="res://Textures/itch.png" id="3_f1q7l"]
+[ext_resource type="Script" uid="uid://lcui0i1b2spk" path="res://Scripts/warning_reset.gd" id="4_f1q7l"]
+
+[node name="Settings" type="CanvasLayer"]
+script = ExtResource("1_ervou")
+
+[node name="Settings_BG" type="ColorRect" parent="."]
+offset_left = 277.0
+offset_top = 4563.0
+offset_right = 317.0
+offset_bottom = 4603.0
+scale = Vector2(1586.89, -736.167)
+color = Color(0.227451, 0.227451, 0.227451, 0.494118)
+
+[node name="Settings_BG2" type="ColorRect" parent="."]
+offset_left = -63199.0
+offset_top = 6530.0
+offset_right = -63159.0
+offset_bottom = 6570.0
+scale = Vector2(1586.89, -736.167)
+color = Color(0.227451, 0.227451, 0.227451, 1)
+
+[node name="Social" type="CanvasLayer" parent="."]
+
+[node name="Discord" type="Label" parent="Social"]
+offset_left = 77.0
+offset_top = 522.0
+offset_right = 135.0
+offset_bottom = 545.0
+scale = Vector2(2.1244, 1.99228)
+text = "@.x.v.c."
+
+[node name="Discord2" type="TextureRect" parent="Social"]
+offset_left = 7.0
+offset_top = 519.0
+offset_right = 263.0
+offset_bottom = 775.0
+scale = Vector2(0.213047, 0.213779)
+texture = ExtResource("2_piiv8")
+
+[node name="Itch" type="Label" parent="Social"]
+offset_left = 79.0
+offset_top = 580.0
+offset_right = 179.0
+offset_bottom = 603.0
+scale = Vector2(1.88971, 2.06066)
+text = "@YikeGames"
+
+[node name="Itch2" type="TextureRect" parent="Social"]
+offset_left = 8.0
+offset_top = 582.0
+offset_right = 508.0
+offset_bottom = 1082.0
+scale = Vector2(0.105103, 0.0984523)
+texture = ExtResource("3_f1q7l")
+
+[node name="Buttons" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1.0
+offset_top = 3.0
+offset_right = 41.0
+offset_bottom = 43.0
+
+[node name="Resume_Btn" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 15.0
+offset_right = 83.0
+offset_bottom = 46.0
+scale = Vector2(3.54395, 3.02276)
+tooltip_text = "Resume Game"
+text = "Resume"
+
+[node name="Save_And_Quit" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = 10.000001
+offset_top = 413.00003
+offset_right = 108.0
+offset_bottom = 444.00003
+scale = Vector2(2.6631331, 2.715284)
+tooltip_text = "Resume Game"
+text = "Save & Quit"
+
+[node name="Sound_Btn" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 143.0
+offset_right = 82.0
+offset_bottom = 174.0
+scale = Vector2(3.54395, 3.02276)
+tooltip_text = "Resume Game"
+text = "Sound
+"
+
+[node name="Misc_Btn" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 261.0
+offset_right = 83.0
+offset_bottom = 292.0
+scale = Vector2(3.54395, 3.02276)
+tooltip_text = "Resume Game"
+text = "Misc"
+
+[node name="Tabs" type="CanvasLayer" parent="."]
+
+[node name="Sound_Tab" type="Control" parent="Tabs"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Music" type="CheckBox" parent="Tabs/Sound_Tab"]
+layout_mode = 0
+offset_left = 291.0
+offset_top = 26.0
+offset_right = 365.0
+offset_bottom = 57.0
+scale = Vector2(2.25648, 2.4126)
+text = "Music"
+
+[node name="Misc_Tab" type="Control" parent="Tabs"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Reset" type="Button" parent="Tabs/Misc_Tab"]
+layout_mode = 0
+offset_left = 281.0
+offset_top = 21.0
+offset_right = 385.0
+offset_bottom = 52.0
+scale = Vector2(2.405799, 2.3599575)
+text = "RESET GAME"
+
+[node name="WarningReset" type="Panel" parent="Tabs/Misc_Tab"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 6.9
+anchor_top = 2.625
+anchor_right = 27.112354
+anchor_bottom = 13.237338
+offset_left = 4.0
+offset_top = -28.999992
+offset_right = -764.4942
+offset_bottom = -413.49356
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(20.212355, 10.612339)
+script = ExtResource("4_f1q7l")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Tabs/Misc_Tab/WarningReset"]
+layout_mode = 0
+offset_left = 2.4737353
+offset_top = 1.6961374
+offset_right = 178.8829
+offset_bottom = 195.603
+scale = Vector2(0.22645727, 0.29345903)
+text = "This will completly reset your game progress. 
+
+Are you sure?"
+autowrap_mode = 2
+
+[node name="Yes" type="Button" parent="Tabs/Misc_Tab/WarningReset"]
+layout_mode = 0
+offset_left = 28.794266
+offset_top = 29.117054
+offset_right = 107.794266
+offset_bottom = 60.117054
+scale = Vector2(0.09664339, 0.26218835)
+text = "Yes"
+
+[connection signal="pressed" from="Buttons/Resume_Btn" to="." method="_on_resume_btn_pressed"]
+[connection signal="pressed" from="Buttons/Save_And_Quit" to="." method="_on_save_and_quit_pressed"]
+[connection signal="pressed" from="Buttons/Sound_Btn" to="." method="_on_sound_btn_pressed"]
+[connection signal="pressed" from="Buttons/Misc_Btn" to="." method="_on_misc_btn_pressed"]
+[connection signal="toggled" from="Tabs/Sound_Tab/Music" to="." method="_on_check_box_toggled"]
+[connection signal="pressed" from="Tabs/Misc_Tab/Reset" to="Tabs/Misc_Tab/WarningReset" method="_on_reset_pressed"]
+[connection signal="pressed" from="Tabs/Misc_Tab/WarningReset/Yes" to="Tabs/Misc_Tab/WarningReset" method="_on_yes_pressed"]
