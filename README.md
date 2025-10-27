@@ -5,7 +5,7 @@ Source code for all of my developed games
 
 > [!IMPORTANT]
 >
-> The [games](https://games.yike.games) website will soon be removed in favor of the new game discovery in the [YikeGames app](https://github.com/explysm/yikegames), & soon on the [YikeGames website](https://yike.games).
+> The [games](https://games.yike.games) website has been removed in favor of the new game discovery in the [YikeGames app](https://github.com/explysm/yikegames), & on the [YikeGames website](https://yike.games).
 
 # Development
 
