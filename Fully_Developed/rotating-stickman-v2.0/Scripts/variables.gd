@@ -3,11 +3,16 @@ var config = ConfigFile.new()
 var save_path = "user://data.cfg"
 
 var hoodie : int = 0
+
 var money : int = 0
 var multiplier : int = 0
 var music : bool = false
+
 var blue : bool = false
 var red : bool = false
+
+var lavendervase : bool = false
+var hat : int = 0
 
 # ---
 
@@ -36,6 +41,9 @@ func load():
 	red = config.get_value("Player", "Red", false)
 
 	music = config.get_value("Settings", "Music", false)
+	
+	lavendervase = config.get_value("Player", "LavenderVase", false)
+	hat = config.get_value("Player", "hat", 0)
 	# print("Data loaded successfully.")
 
 func save():
@@ -48,7 +56,8 @@ func save():
 	config.set_value("Player", "Red", red)
 	
 	config.set_value("Settings", "Music", music)
-	
+	config.set_value("Player", "LavenderVase", lavendervase)
+	config.set_value("Player", "hat", hat)
 	# 2. SAVE THE CONFIG FILE to the disk path.
 	var save_result = config.save(save_path)
 	if save_result != OK:
@@ -68,6 +77,8 @@ func reset_game():
 	config.set_value("Player", "Red", false)
 	
 	config.set_value("Settings", "Music", false)
+	config.set_value("Player", "LavenderVase", false)
+	config.set_value("Player", "hat", 0)
 	
 	# 2. SAVE THE CONFIG FILE to the disk path.
 	var save_result = config.save(save_path)

@@ -13,7 +13,6 @@ extends Node3D
 
 var shown = false
 func _ready():
-	MobileControls.visible = false
 	Caseoh.visible = false
 	
 	Label1.visible = false

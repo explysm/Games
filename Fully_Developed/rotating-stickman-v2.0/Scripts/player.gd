@@ -3,11 +3,14 @@ extends CharacterBody2D
 @export var speed : float = 400
 var screen_size
 var move_vector := Vector2.ZERO
-
+@onready var hat = $AnimatedSprite2D/Hat
 func _ready():
 	screen_size = get_viewport_rect().size
+	
+
 
 func _process(delta: float) -> void:
+
 	var velocity = Vector2.ZERO
 	if Input.is_action_pressed("move_right"):
 		velocity.x += 1

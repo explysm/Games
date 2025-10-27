@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cy26un41gtn68"]
+[gd_scene load_steps=20 format=3 uid="uid://cy26un41gtn68"]
 
 [ext_resource type="Script" uid="uid://bt4afj5ml610" path="res://Scripts/player.gd" id="1_fkybt"]
 [ext_resource type="Texture2D" uid="uid://cnoajor1jp0p1" path="res://Textures/B_Stickman_Upright.png" id="2_f1ek2"]
@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://bhxpp4336ulqd" path="res://Textures/R_Stickman_Right.png" id="7_7dp3o"]
 [ext_resource type="Texture2D" uid="uid://sae8b86nit6l" path="res://Textures/R_Srickman_Down.png" id="8_h4iuc"]
 [ext_resource type="Texture2D" uid="uid://rfhi7pe36o7v" path="res://Textures/R_Stickman_Left.png" id="9_fd4e3"]
+[ext_resource type="Texture2D" uid="uid://drxx0n2jsd5w5" path="res://Textures/hats/lavenderHat.png" id="14_h4iuc"]
+[ext_resource type="Texture2D" uid="uid://3m06qh2jiil3" path="res://Textures/hats/blank.png" id="15_fd4e3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tx1dd"]
 animations = [{
@@ -68,6 +70,25 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_qqcod"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_h4iuc")
+}],
+"loop": true,
+"name": &"lavenderVase",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_fd4e3")
+}],
+"loop": true,
+"name": &"none",
+"speed": 5.0
+}]
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gymyn"]
 radius = 32.0
 height = 118.0
@@ -85,12 +106,18 @@ position = Vector2(295, 183)
 script = ExtResource("1_fkybt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(273, 125)
+position = Vector2(272, 124)
 sprite_frames = SubResource("SpriteFrames_tx1dd")
 animation = &"Rotating"
 
+[node name="Hat" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
+position = Vector2(-2.000005, -59.999992)
+scale = Vector2(0.06484378, 0.079345725)
+sprite_frames = SubResource("SpriteFrames_qqcod")
+animation = &"lavenderVase"
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(271, 125)
+position = Vector2(271, 126)
 shape = SubResource("CapsuleShape2D_gymyn")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]

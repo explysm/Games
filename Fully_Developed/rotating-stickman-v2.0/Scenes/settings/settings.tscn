@@ -157,11 +157,11 @@ script = ExtResource("4_f1q7l")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Tabs/Misc_Tab/WarningReset"]
 layout_mode = 0
-offset_left = 2.4737353
-offset_top = 1.6961374
-offset_right = 178.8829
-offset_bottom = 195.603
-scale = Vector2(0.22645727, 0.29345903)
+offset_left = 10.043364
+offset_top = 3.3922768
+offset_right = 165.81427
+offset_bottom = 108.07115
+scale = Vector2(0.15361331, 0.22618426)
 text = "This will completly reset your game progress. 
 
 Are you sure?"
@@ -169,12 +169,21 @@ autowrap_mode = 2
 
 [node name="Yes" type="Button" parent="Tabs/Misc_Tab/WarningReset"]
 layout_mode = 0
-offset_left = 28.794266
-offset_top = 29.117054
-offset_right = 107.794266
-offset_bottom = 60.117054
+offset_left = 30.080608
+offset_top = 29.117048
+offset_right = 109.08061
+offset_bottom = 60.11705
 scale = Vector2(0.09664339, 0.26218835)
 text = "Yes"
+
+[node name="No" type="Button" parent="Tabs/Misc_Tab/WarningReset"]
+layout_mode = 0
+offset_left = 1.9295135
+offset_top = 28.740133
+offset_right = 80.92951
+offset_bottom = 59.740135
+scale = Vector2(0.09664339, 0.26218835)
+text = "No"
 
 [connection signal="pressed" from="Buttons/Resume_Btn" to="." method="_on_resume_btn_pressed"]
 [connection signal="pressed" from="Buttons/Save_And_Quit" to="." method="_on_save_and_quit_pressed"]
@@ -183,3 +192,4 @@ text = "Yes"
 [connection signal="toggled" from="Tabs/Sound_Tab/Music" to="." method="_on_check_box_toggled"]
 [connection signal="pressed" from="Tabs/Misc_Tab/Reset" to="Tabs/Misc_Tab/WarningReset" method="_on_reset_pressed"]
 [connection signal="pressed" from="Tabs/Misc_Tab/WarningReset/Yes" to="Tabs/Misc_Tab/WarningReset" method="_on_yes_pressed"]
+[connection signal="pressed" from="Tabs/Misc_Tab/WarningReset/No" to="Tabs/Misc_Tab/WarningReset" method="_on_no_pressed"]

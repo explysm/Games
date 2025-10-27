@@ -4,9 +4,15 @@ extends CanvasLayer
 @onready var music = $Music
 @onready var settings = $Settings
 @onready var dev = $Dev
+@onready var hat = $MainScene/Player/AnimatedSprite2D/Hat
 
 var devVisible : bool = false
 func _ready():
+	if v.hat == 0:
+		hat.animation = "none"
+	if v.hat == 1:
+		hat.animation = "lavenderVase"
+	
 	v.load()
 	money_count.text = str(v.money)
 	settings.visible = false

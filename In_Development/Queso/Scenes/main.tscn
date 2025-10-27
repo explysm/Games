@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://2wh8a5wxvelj"]
+[gd_scene load_steps=15 format=3 uid="uid://2wh8a5wxvelj"]
 
 [ext_resource type="Script" uid="uid://cje2t7tw6c455" path="res://Scenes/main.gd" id="1_21xkr"]
 [ext_resource type="PackedScene" uid="uid://cm1qx0t7ylge0" path="res://Scenes/player.tscn" id="1_jjgbg"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://blxu3sslyhfk3" path="res://Models/Bus.glb" id="5_21xkr"]
 [ext_resource type="PackedScene" uid="uid://c7x0pkmy2qlb3" path="res://caseoh_big_version.glb" id="7_6bp64"]
 [ext_resource type="AudioStream" uid="uid://d0cc3fe1qn57t" path="res://Models/vine-boom.mp3" id="7_344ge"]
+[ext_resource type="Script" uid="uid://btsvy8g2x038v" path="res://addons/virtual_joystick/virtual_joystick_instantiator.gd" id="9_ynf5e"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jjvhh"]
 size = Vector3(13.9866, 1.74872, 1.06445)
@@ -216,66 +217,19 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+[node name="MobileControls" type="CanvasLayer" parent="."]
 
-[node name="Control" type="Control" parent="CanvasLayer3"]
+[node name="Virtual Joystick" type="Control" parent="MobileControls"]
 layout_mode = 3
 anchors_preset = 0
+offset_top = 604.0
 offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Up" type="Button" parent="CanvasLayer3/Control"]
-layout_mode = 0
-offset_left = 83.0
-offset_top = 402.0
-offset_right = 166.0
-offset_bottom = 478.0
-text = "Up"
-
-[node name="Down" type="Button" parent="CanvasLayer3/Control"]
-layout_mode = 0
-offset_left = 83.0
-offset_top = 554.0
-offset_right = 166.0
-offset_bottom = 630.0
-text = "Down"
-
-[node name="Left" type="Button" parent="CanvasLayer3/Control"]
-layout_mode = 0
-offset_top = 478.0
-offset_right = 83.0
-offset_bottom = 554.0
-text = "Left"
-
-[node name="Right" type="Button" parent="CanvasLayer3/Control"]
-layout_mode = 0
-offset_left = 166.0
-offset_top = 478.0
-offset_right = 249.0
-offset_bottom = 554.0
-text = "Right"
-
-[node name="CanvasLayer4" type="CanvasLayer" parent="."]
-
-[node name="Control" type="Control" parent="CanvasLayer4"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="CheckButton" type="CheckButton" parent="CanvasLayer4/Control"]
-offset_right = 171.0
-offset_bottom = 40.0
-text = "Mobile Controls"
+offset_bottom = 644.0
+script = ExtResource("9_ynf5e")
+metadata/_custom_type_script = "uid://btsvy8g2x038v"
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
 [connection signal="body_entered" from="Area3D2" to="." method="_on_area_3d_2_body_entered"]
-[connection signal="button_down" from="CanvasLayer3/Control/Up" to="Player" method="_on_up_button_down"]
-[connection signal="button_down" from="CanvasLayer3/Control/Down" to="." method="_on_down_button_down"]
-[connection signal="button_down" from="CanvasLayer3/Control/Down" to="Player" method="_on_down_button_down"]
-[connection signal="button_down" from="CanvasLayer3/Control/Left" to="Player" method="_on_left_button_down"]
-[connection signal="button_down" from="CanvasLayer3/Control/Right" to="Player" method="_on_right_button_down"]
-[connection signal="toggled" from="CanvasLayer4/Control/CheckButton" to="." method="_on_check_button_toggled"]

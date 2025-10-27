@@ -21,6 +21,7 @@ config/icon="uid://ine1m4ev0yo7"
 
 v="*res://Scripts/variables.gd"
 mm="*res://Scripts/MultiplayerManager.gd"
+SceneManager="*res://addons/scene_manager/SceneManager.tscn"
 
 [display]
 
@@ -30,7 +31,7 @@ window/stretch/aspect="ignore"
 
 [editor_plugins]
 
-enabled=PackedStringArray()
+enabled=PackedStringArray("res://addons/YATI/plugin.cfg", "res://addons/scene_manager/plugin.cfg", "res://addons/virtual_joystick/plugin.cfg")
 
 [gui]
 
